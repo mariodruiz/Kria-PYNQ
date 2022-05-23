@@ -122,6 +122,7 @@ network:
   renderer: networkd
   ethernets:
     eth0:
+      optional: true
       dhcp4: true
       addresses:
         - 192.168.2.99/24
