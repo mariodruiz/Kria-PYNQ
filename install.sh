@@ -126,6 +126,7 @@ network:
       addresses:
         - 192.168.2.99/24
 EOT
+netplan apply
 
 # Compile pynq device tree overlay and insert it by default
 pushd dts/
@@ -207,4 +208,3 @@ apt-get purge -y libdrm-xlnx-amdgpu1
 ip_addr=$(ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 echo -e "${GREEN}PYNQ Installation completed.${NC}\n"
 echo -e "\n${YELLOW}To continue with the PYNQ experience, connect to JupyterLab via a web browser using this url: ${ip_addr}:9090/lab or $(hostname):9090/lab - The password is xilinx${NC}\n"
-sudo netplan apply
