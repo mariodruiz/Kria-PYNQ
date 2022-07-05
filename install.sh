@@ -116,7 +116,7 @@ popd
 echo "$BOARD" > /etc/xocl.txt
 
 # Include both static and dhcp IP in the netplan
-cat > /etc/netplan/network01-netcfg.yaml <<EOT
+cat > /etc/netplan/01-static-and-dynamic-ip.yaml <<EOT
 network:
   version: 2
   renderer: networkd
