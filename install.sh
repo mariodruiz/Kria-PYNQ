@@ -144,15 +144,26 @@ then
         exit 1
 fi
 
-# Numpy 2.0 workaround:
+# =========================================================
+# Global Pip Constraints
+# =========================================================
+cat > /tmp/pynq_3.0.1_constraints.txt <<EOT
+numpy==1.26.4
+typing-extensions>=4.6.0
+pynqmetadata==0.1.2
+pynqutils==0.1.1
+pynq==3.0.1
+EOT
+export PIP_CONSTRAINT=/tmp/pynq_3.0.1_constraints.txt
+
 # Install latest 1.* numpy so requirement is met for other packages
-python3 -m pip install numpy==1.26.4
+python3 -m pip install numpy
 
 # Installing PYNQ-Metadata
-python3 -m pip install pynqmetadata==0.1.2 
+python3 -m pip install pynqmetadata 
 
 # Install PYNQ-Utils
-python3 -m pip install pynqutils==0.1.1 
+python3 -m pip install pynqutils 
 
 # PYNQ JUPYTER
 pushd pynq/sdbuild/packages/jupyter
@@ -166,8 +177,8 @@ pushd pynq/sdbuild/packages/libsds
 ./qemu.sh
 popd
 
-# Install PYNQ-3.0.1
-python3 -m pip install pynq==3.0.1
+# Install PYNQ
+python3 -m pip install pynq
 
 ## GCC-MB and XCLBINUTILS
 pushd /tmp
