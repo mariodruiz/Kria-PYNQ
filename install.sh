@@ -150,9 +150,9 @@ fi
 cat > /tmp/pynq_3.0.1_constraints.txt <<EOT
 numpy==1.26.4
 typing-extensions>=4.6.0
-pynqmetadata==0.1.2
-pynqutils==0.1.1
-pynq==3.0.1
+pynqmetadata==0.1.9
+pynqutils==0.1.2
+pynq==3.1.2
 EOT
 export PIP_CONSTRAINT=/tmp/pynq_3.0.1_constraints.txt
 
