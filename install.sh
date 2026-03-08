@@ -98,7 +98,7 @@ then
   git submodule init && git submodule update
 else
   rm -rf pynq/
-  git clone https://github.com/Xilinx/PYNQ.git --branch v3.0.1 --depth 1 pynq
+  git clone https://github.com/Xilinx/PYNQ.git --branch v3.1.2 --depth 1 pynq
 fi
 
 
