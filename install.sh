@@ -55,6 +55,9 @@ case $DISTRIB_RELEASE in
         22.04)
                 echo -e "${GREEN}Ubuntu version 22.04 and Kria-PYNQ v3.0 version match${NC}"
                 ;;
+        24.04)
+                echo -e "${GREEN}Ubuntu version 24.04 and Kria-PYNQ v3.1 version match${NC}"
+                ;;
         *)
                 echo -e "${RED}Incompatible version of Ubuntu with Kria-PYNQ. Or unable to determine distribution version from /etc/lsb-release${NC}"
                 exit 1
