@@ -119,7 +119,7 @@ echo "deb http://ppa.launchpad.net/ubuntu-xilinx/updates/ubuntu jammy main" > /e
 apt update 
 
 apt-get -o DPkg::Lock::Timeout=10 update && \
-apt-get install -y python3.10-venv python3-cffi libssl-dev libcurl4-openssl-dev \
+apt-get install -y python3.12-venv python3-cffi libssl-dev libcurl4-openssl-dev \
   portaudio19-dev libcairo2-dev libdrm-xlnx-dev libopencv-dev python3-opencv graphviz i2c-tools \
   fswebcam libboost-all-dev python3-dev python3-pip
 
@@ -291,7 +291,7 @@ sed -i 's/Specifically a RALink WiFi dongle commonly used with \\n//g' $PYNQ_JUP
 sed -i 's/Raspberry Pi kits is connected into the board.//g' $PYNQ_JUPYTER_NOTEBOOKS/common/wifi.ipynb
 
 # Patch microblaze to use virtualenv libraries
-sed -i "s/opt\/microblaze/usr\/local\/share\/pynq-venv\/bin/g" /usr/local/share/pynq-venv/lib/python3.10/site-packages/pynq/lib/pynqmicroblaze/rpc.py
+sed -i "s/opt\/microblaze/usr\/local\/share\/pynq-venv\/bin/g" /usr/local/share/pynq-venv/lib/python3.12/site-packages/pynq/lib/pynqmicroblaze/rpc.py
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Remove unnecessary notebooks
@@ -339,17 +339,17 @@ echo "source /etc/profile.d/pynq_venv.sh" >> selftest.sh
 
 if [[ "$board" == "KV260" ]]
 then
-	echo "pushd /usr/local/share/pynq-venv/lib/python3.10/site-packages/pynq_composable/runtime_tests" >> selftest.sh
+	echo "pushd /usr/local/share/pynq-venv/lib/python3.12/site-packages/pynq_composable/runtime_tests" >> selftest.sh
 	echo "python3 -m pytest test_apps.py" >> selftest.sh
 	echo "python3 -m pytest test_composable.py" >> selftest.sh
 	echo "python3 -m pytest test_mmio_partial_bitstreams.py" >> selftest.sh
 	echo "popd" >> selftest.sh
-	echo "python3 -m pytest /usr/local/share/pynq-venv/lib/python3.10/site-packages/pynq_dpu/tests" >> selftest.sh
+	echo "python3 -m pytest /usr/local/share/pynq-venv/lib/python3.12/site-packages/pynq_dpu/tests" >> selftest.sh
 fi
 
 if [[ "$board" == "KR260" ]]
 then
-	echo "python3 -m pytest /usr/local/share/pynq-venv/lib/python3.10/site-packages/pynq_dpu/tests" >> selftest.sh
+	echo "python3 -m pytest /usr/local/share/pynq-venv/lib/python3.12/site-packages/pynq_dpu/tests" >> selftest.sh
 fi
 chmod a+x ./selftest.sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
